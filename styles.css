@@ -2,19 +2,26 @@ a {
   color: #111;
 }
 
-ul {
+.weather li {
+
+}
+.layout ul  {
+  display: block;
   max-width: 100%;
   list-style-type: none;
   margin: 0;
-  padding: o;
+  padding: 0;
   overflow: hidden;
   background-color: #cecece;
 }
 
-li {
+.layout li {
   float: left;
   padding: 14px 16px;
   text-decoration: none;
+  text-align: left;
+  grid-template-columns:  repeat(2, 1fr);
+  grid-template-rows: repeat(5 1fr);
 }
 
 li a {
@@ -100,6 +107,7 @@ hr {
   }
 } /* Weather sections */
 .article-five-day ul{
+  
   grid-column: 1 / -1;
   padding: 15px;
   margin-top: 15px;
@@ -114,11 +122,29 @@ hr {
   grid-column: 1/ 5;
   background: rgba(200, 200, 255, 0.3);
 }
-#city {
+p {
+  display: grid;
   text-align: center;
+  justify-self: end;
+
+  
 }
+
+
+
+
+
+
 #forecastTitle {
+ 
   text-align: center;
+  grid-area: header;
+  grid-row: 2;
+  justify-items: center;
+  grid-column: auto;
+  grid-column-end: span 1;
+  
+ 
 }
 .flex {
   display: flex;
@@ -141,9 +167,9 @@ hr {
   justify-content: center;
   display: flex;
 }
-.weatherIcon_1 img{
-  float: right;
-  width: 10%;
+.page_1 .weatherIcon_1 {
+  justify-self: center;
+  width: 30%;
   padding: 5px;
  
 }
@@ -169,7 +195,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr;
-  grid-gap: 10px
+  grid-gap: 10px;
+  
 }
 @media (max-width: 680px) {
    .archive_1{
@@ -181,15 +208,60 @@ footer {
   } }
 
 .page_1 {
-    padding: 2em;
-    background: #cecece;
-    max-width: 100%;
+  display: grid;
+  padding: 2em;
+  background: #cecece;
+  max-width: 100%;
+  text-align: left;
+  grid-template-columns:  repeat(2, 1fr);
+ 
 }
 
-.tittleweather{
-  grid-row: 1;
-}
 
-.tittleweather_1{
+.item-1{
+  grid-area: header;
   grid-row: 2;
+  justify-items: center;
+  grid-column: auto;
+  grid-column-end: span 1;
+}
+
+/* section{
+  display: grid;
+} */
+
+.item-2{
+  grid-area: sidebar;
+  justify-self: center;
+  width: 25%;
+  grid-column: 1;
+  
+}
+
+.item-3{
+  grid-area: main;
+  justify-self: center;
+  width: 25%;
+  grid-column: 2;
+}
+
+.item-4{
+  grid-area: sidebar;
+  justify-self: center;
+  width: 25%;
+  grid-column: 3;
+}
+
+.item-5{
+  grid-area: sidebar;
+  justify-self: center;
+  width: 25%;
+  grid-column: 4;
+}
+
+.item-6{
+  grid-area: sidebar;
+  justify-self: center;
+  width: 25%;
+  grid-column: 5;
 }
