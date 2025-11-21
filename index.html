@@ -8,158 +8,175 @@
     <h1>Weather For All</h1>
   </head>
   <body>
-    <header></header>
-    <nav>
-      <ul>
+    <main>
+    <nav class="layout">
+      <ul class="layout">
         <li><a class="active" href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#weather">Weather</a></li>
-        <li style="float: right"><a href="#about">About</a></li>
+        <li><a class="active" href="#news">News</a></li>
+        <li><a class="active" href="#weather">Weather</a></li>
+        <li ><a class="active" href="#about">About</a></li>
       </ul>
     </nav>
-    <main>
-    <section>
-      <h1>Today's Weather</h1>
-        <ul style="list-style-type: none;">
+    <br>
+   
+    <section >
+      <h1>Latest weather</h1>
+      
+  
+       
+      <section class="page_1">
+        
+        <h2 >Today's Weather</h2>
+        <p id="city">Tooele</p>
+        <ul class="weather">
           <li>Date: Sunday, October 34th, 2021</li>
-          <li>Tempeture: 67°F</li>
-          <li>Feels like: 69°F</li>
-          <li>Humidinity: 13%</li>
-          <li>Wind Speed: N 9 mph</li>
+          <li><br>Temperature: 67°F</li>
+          <li><br>Feels like: 69°F</li>
+          <li><br>Humidinity: 13%</li>
+          <li ><br>Wind Speed: N 9 mph</li>
         </ul>
-      <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWW0rbIsudTvuj75NiJUOR3O-39F4nXixgiA&s" width = "auto" height="auto"
-        class="weatherIcon"
+      <img class="weatherIcon_1"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWW0rbIsudTvuj75NiJUOR3O-39F4nXixgiA&s" alt="rainyday"
       />
-      <span class="temp-data">
-        <span id="data0">67</span> <span>°F</span>
-      </span>
     </section>
-    <section>
-    <h2>5 Day Weather Forecast</h2>
-    <div class="flex-col">
-      <span id="dayTitle1" class="col-head">Monday</span>
+   <br>
+   
+    
+    
+  <section class="flex-col">
+    <div class="item-1">
+          <h2 id="forecastTitle">5 Day Weather Forecast</h2>
+          <p id="city">Tooele</p>
+              </div>
+    <div class="item-2">
+      <span id="stats" class="col-head">Monday</span>
       <img
-        src="https://cdn-icons-png.flaticon.com/512/3222/3222808.png" style="width: 25%; height: 25%"
-        class="weatherIcon"
+        src="https://cdn-icons-png.flaticon.com/512/3222/3222808.png" 
+        class="weatherIcon" 
       />
       <span class="temp-data">
         <span id="data1">74</span> <span>°F</span>
       </span>
     </div>
-    <div class="flex-col">
-      <span id="dayTitle2" class="col-head">Tuesday</span>
+    <div class="item-3">
+      <span id="stats" class="col-head">Tuesday</span>
       <img
-        src="https://cdn-icons-png.flaticon.com/512/7084/7084512.png" style="width: 25%; height: 25%"
-        class="weatherIcon"
+        src="https://cdn-icons-png.flaticon.com/512/7084/7084512.png"
+        class="weatherIcon"  
       />
       <span class="temp-data">
         <span id="data2">108</span> <span>°F</span>
       </span>
     </div>
-    <div class="flex-col">
-      <span id="dayTitle3" class="col-head">Wednesday</span>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/7084/7084512.png" style="width: 25%; height: 25%"
-        class="weatherIcon"
+    <div class="item-4">
+      <span id="stats" class="col-head">Wednesday</span>
+      <img id="flex"
+        src="https://cdn-icons-png.flaticon.com/512/7084/7084512.png" 
+        class="weatherIcon"  
       />
       <span class="temp-data">
         <span id="data3">98</span> <span>°F</span>
       </span>
     </div>
-    <div class="flex-col">
-      <span id="dayTitle4" class="col-head">Thursday</span>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/7084/7084486.png" style="width: 25%; height: 25%"
-        class="weatherIcon"
+    <div class="item-5" >
+      <span id="stats" class="col-head">Thursday</span>
+      <img id="flex"
+        src="https://cdn-icons-png.flaticon.com/512/7084/7084486.png" 
+        class="weatherIcon"  
       />
       <span class="temp-data">
         <span id="data4">67</span> <span>°F</span>
       </span>
     </div>
-    <div class="flex-col">
-      <span id="dayTitle5" class="col-head">Friday</span>
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/6635/6635320.png" style="width: 25%; height: 25%"
-        class="weatherIcon"
+    <div class="item-6">
+      <span id="stats" class="col-head">Friday</span>
+      <img id="flex"
+        src="https://cdn-icons-png.flaticon.com/512/6635/6635320.png" 
+        class="weatherIcon"  
       />
       <span class="temp-data">
         <span id="data5">45</span> <span>°F</span>
       </span>
       </section>
+      </div>
     </div>
-    </main>
-    <footer>
+    
+   
+    
       <hr />
       <section class="news-section">
         <div class="page">
           <h1>LATEST NEWS</h1>
           <div class="archive">
             <article class="article">
-              <img id="article-image-0" src="https://www.shutterstock.com/image-photo/cat-reading-newspaper-600nw-515958022.jpg" style="width: 25%; height: 25%" alt="main article" />
+              <img id="article-image-0" src="https://www.shutterstock.com/image-photo/cat-reading-newspaper-600nw-515958022.jpg"  alt="main article" />
               <h2>
                 <a id="header-article"></a>
               </h2>
               <p id="header-desc">Kitten reading the news.</p>
             </article>
             <article class="article">
-           <h3>
-                <a id="article-link-1">How an orphanage saved a litter of kittens.</a>
-              </h3>
+                <h3><a id="article-link-1">How an orphanage saved a litter of kittens.</a></h3>
               <p id="article-desc-1">Read more to find out about this heartwarming story...</p>
-            <article class="article 0">
               <img
                 id="article-img-1"
                 src="https://media.istockphoto.com/id/143922546/photo/group-of-african-orphan-children.jpg?s=612x612&w=0&k=20&c=RpKm-4iCJGJ_6ukzmMDxk1lTXhGp7VoYchb_sBLKqtY="
                 alt="main article"
               />
+            </article>
+            <article class="article">
              <h3>
                 <a id="article-link-1">Kitten is hit by a bus full of human bodies.</a>
               </h3>
               <p id="article-desc-1">Read more to find out about this devasting story...</p>
-            </article>
-            <article class="article">
               <img
                 id="article-img-2"
                 src="https://thumbs.dreamstime.com/b/cute-tabby-cat-green-bag-enjoying-window-view-bus-concept-traveling-pets-feline-curiosity-urban-adventure-373907672.jpg"
                 alt="sub article 1"
               />
+             </article>
+             <article class="article">
               <h3>
                 <a id="article-link-2">Couple of cats is denied marriage.</a>
               </h3>
               <p id="article-desc-2">Read more to find out why the church did not approve...</p>
-            </article>
-            <article class="article">
+            
               <img
                 id="article-img-3"
                 src="https://media.istockphoto.com/id/485594204/photo/cat.jpg?s=612x612&w=0&k=20&c=1YEB5tGn4jdhR9W985rNhJbx9S7JZ9U5ukIs2732Zb4="
                 alt="sub article 2"
               />
+              </article>
+              <article class="article">
               <h3>
                 <a id="article-link-3">67 cats found in a hoarder's house</a>
               </h3>
               <p id="article-desc-3">Read more to find out how these poor cats got in that situation...</p>
-            </article>
-            <article class="article">
               <img
                 id="article-img-4"
                 src="https://t3.ftcdn.net/jpg/07/25/80/98/360_F_725809841_8IWKRctD3fxaCAjo5Sc94EXbjTI34kVR.jpg"
                 alt="sub article 3"
               />
+              </article>
+              <article class="article">
               <h3>
                 <a id="article-link-4">Kitten saves the world</a>
-            </article>
-             <article class="article">
+              </h3>
+              <p id="article-desc-3">Read more to find out how he became the legend...</p>  
               <img
 
                 id="article-img-5"
                 src="https://www.shutterstock.com/image-photo/superhero-cat-scottish-whiskas-blue-600nw-1163316250.jpg"
                 alt="sub article 4"
               />
+            </article>
           </div>
         </div>
       </section>
+    </section>
+    </main>
       <footer>
       &copy; <span id="year">2025</span> |Ziyi Ng| <a href="https://tooeletech.edu/" target="_blank" rel="noopener noreferrer">Tooele Technical College</a>
       <br>
         last updated: <span id="updated"> 5:46pm, October 27th, 2025</span>
+        </footer>
