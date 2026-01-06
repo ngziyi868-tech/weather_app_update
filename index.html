@@ -5,9 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Weather App</title>
-    <h1>Weather For All</h1>
+
   </head>
   <body>
+    <h1>Weather For All</h1>
     <main>
     <nav class="layout">
       <ul class="layout">
@@ -29,14 +30,14 @@
         <h2 >Today's Weather</h2>
         <p id="city">Tooele</p>
         <ul class="weather">
-          <li>Date: Sunday, October 34th, 2021</li>
-          <li><br>Temperature: 67°F</li>
-          <li><br>Feels like: 69°F</li>
-          <li><br>Humidinity: 13%</li>
-          <li ><br>Wind Speed: N 9 mph</li>
+          <li id="current-date">Date: Sunday, October 34th, 2021</li>
+          <li>Temperature:<span id="current-temp">--°F</span></li>
+          <li>Feels like:<span id="current-windChill">--°F</span></li>
+          <li>Humidinity:<span id="current-humid">--%</span></li>
+          <li>Wind Speed: <span id="current-windSpeed">--mph</span></li>
         </ul>
-      <img class="weatherIcon_1"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWW0rbIsudTvuj75NiJUOR3O-39F4nXixgiA&s" alt="rainyday"
+      <img id="current-icon"
+        src=" " alt="Weather icon"
       />
     </section>
    <br>
@@ -102,7 +103,7 @@
     </div>
     
    
-    
+    <script src="weather-header.js"></script>
       <hr />
       <section class="news-section">
         <div class="page">
