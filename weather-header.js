@@ -9,6 +9,12 @@ async function getWeatherData() {
     const weatherData = await weatherResponse.json();
 
     displayCurrentWeather(weatherData);
+
+    const forecastResponse = await fetch(forecastURL);
+    if (!forecastResponse.ok) throw new Error("Error");
+    const forecastData = await forecastResponse.json();
+    displayForecast(forecastData);
+    
     updateCurrentDate();
   } catch (error) {
     console.error("Weather Error:", error);
@@ -34,20 +40,26 @@ function displayCurrentWeather(data) {
     windChill = Math.round(windChill);
   }
 
-  document.getElementById("current-temp").textContent = `${temp}g`;
+  document.getElementById("current-temp").textContent = `${temp}°F`;
   document.getElementById("current-windChill").textContent = `${windChill}°F`;
   document.getElementById("current-humid").textContent = `${humidity}%`;
   document.getElementById("current-windSpeed").textContent = `${windSpeed} mph`;
   document.getElementById("current-desc").textContent = weatherDesc;
 
   const tempElement = document.getElementById("current-temp");
-  if (tempElement) tempElement.textContent = `${Math.round(temp)}`
-
-
+  if (tempElement) tempElement.textContent = `${Math.round(temp)}°F`;
 
   const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   const icon = document.getElementById("current-icon");
   icon.src = iconURL;
   icon.alt = weatherDesc;
+}
 
+function updateCurrentDate() {
+  const dateElement = document.getElementById("current-date");
+  if (!dateElement) return;
+  const now = new Date();
+  const options = { weekday: "long", day: "numeric", year: "numeric" };
+  const formattedDate = now.toLocaleDateString("en-US", options);
+  dateElement.textContent = `Date: ${formattedDate}`;
 }
