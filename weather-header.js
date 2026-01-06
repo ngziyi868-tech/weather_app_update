@@ -1,11 +1,12 @@
 const city = "Tooele";
 const apiKey = "889f86ea113204ba293d53abe0617a4b";
-const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=tooele&units=imperial&appid={apiKey}`;
-const forecastURL = `https://api.openweathermap.org/data/2.5/weather?q=tooele&units=imperial&appid={apiKey}`;
+const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=tooele&units=imperial&appid=${apiKey}`;
+const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=tooele&units=imperial&appid=${apiKey}`;
 
 async function getWeatherData() {
   try {
-    const weatherResponse = await fetch(weatherURL);
+    const response = await fetch(weatherURL);
+    if (!weatherResponse.ok) throw new Error("Error");
     const weatherData = await weatherResponse.json();
 
     displayCurrentWeather(weatherData);
@@ -44,14 +45,10 @@ function displayCurrentWeather(data) {
   document.getElementById("current-windChill").textContent = `${windChill}°F`;
   document.getElementById("current-humid").textContent = `${humidity}%`;
   document.getElementById("current-windSpeed").textContent = `${windSpeed} mph`;
-  document.getElementById("current-desc").textContent = weatherDesc;
 
-  const tempElement = document.getElementById("current-temp");
-  if (tempElement) tempElement.textContent = `${Math.round(temp)}°F`;
-
-  const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+ 
   const icon = document.getElementById("current-icon");
-  icon.src = iconURL;
+  icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   icon.alt = weatherDesc;
 }
 
@@ -60,7 +57,7 @@ function displayForecast(data) {
 
   dailyForecast.slice(0,5).forEach((dayData, index) =>{
     const temp= Math.round(dayData.main.temp);
-    const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    const iconURL = `https://openweathermap.org/img/wn/${dayData.weather[0].icon}@2x.png`;
     const desc = dayData.weather[0].description;
 
     const tempElement = document.getElementById(`data${index + 1}`);
