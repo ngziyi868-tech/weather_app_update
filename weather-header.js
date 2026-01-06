@@ -14,7 +14,7 @@ async function getWeatherData() {
     if (!forecastResponse.ok) throw new Error("Error");
     const forecastData = await forecastResponse.json();
     displayForecast(forecastData);
-    
+
     updateCurrentDate();
   } catch (error) {
     console.error("Weather Error:", error);
@@ -54,6 +54,26 @@ function displayCurrentWeather(data) {
   icon.src = iconURL;
   icon.alt = weatherDesc;
 }
+
+function displayForecast(data) {
+  const dailyForecast = data.list.filter(item => item.dt_txt.includes("12:00:00"));
+
+  dailyForecast.slice(0,5).forEach((dayData, index) =>{
+    const temp= Math.round(dayData.main.temp);
+    const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    const desc = dayData.weather[0].description;
+
+    const tempElement = document.getElementById(`data${index + 1}`);
+    if (tempElement) tempElement.textContent = temp;
+
+    const forecastImg = document.querySelectorAll(".flex-col img")[index];
+    if(forecastImg){
+      forecastImg.src = iconURL;
+      forecastImg.alt = desc;
+    }
+  });
+}
+
 
 function updateCurrentDate() {
   const dateElement = document.getElementById("current-date");
