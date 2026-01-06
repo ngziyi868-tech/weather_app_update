@@ -8,34 +8,34 @@ async function getWeatherData() {
     const weatherData = await weatherResponse.json();
 
     displayCurrentWeather(weatherData);
-
   } catch (error) {
-    console.error("Error:", error);
-    alert("Error");
+    console.error("Weather Error:", error);
+    
   }
 }
 
 getWeatherData();
 
-
 function displayCurrentWeather(data) {
-    const temp = data,main.temp;
-    const humidity = data.main.humidity;
-    const windSpeed = data.wind.speed;
-    const weatherDesc = data.weather[0].description;
-    
+  const temp = data.main.temp;
+  const humidity = data.main.humidity;
+  const windSpeed = data.wind.speed;
+  const weatherDesc = data.weather[0].description;
 
+  let windChill = "N/A";
+  if (temp <= 50 && windSpeed > 3) {
+    windChill = 35.74 + 0.6215 * temp - 35.75 * Math.pow(windSpeed, 0.16) + 0.4275 * temp * Math.pow(windSpeed, 0.16);
+    windChill = Math.round(windChill);
+  }
+
+  document.getElementById("current-temp").textContent = `${temp}°F`;
+  document.getElementById("current-windChill").textContent = `${windChill}°F`;
+  document.getElementById("current-humid").textContent = `${humidity}%`;
+  document.getElementById("current-windSpeed").textContent = `${windSpeed} mph`;
+  document.getElementById("current-desc").textContent = weatherDesc;
+
+  const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  const icon = document.getElementById("current-icon");
+  icon.src = iconURL;
+  icon.alt = weatherDesc;
 }
-
-
-
-document.getElementById("current-temp").textContent = `${temp}°F`;
-document.getElementById("current-windChill").textContent = `${windChill}°F`;
-document.getElementById("current-humid").textContent = `${humidity}%`;
-document.getElementById("current-windSpeed").textContent = `${windSpeed} mph`;
-document.getElementById("current-desc").textContent = weatherDesc;
-
-const iconURL = `https://openweathermap.org/img/wn/{data.weather[0].icon}@2x.png`;
-const icon = document.getElementById("current-icon");
-icon.src = iconURL;
-icon.alt = weatherDesc;
