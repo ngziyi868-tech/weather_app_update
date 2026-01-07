@@ -2,6 +2,10 @@ const city = "Tooele";
 const apiKey = "889f86ea113204ba293d53abe0617a4b";
 const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=tooele&units=imperial&appid=${apiKey}`;
 
+
+const URL = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=18abc84001204202af32ebe2354a09a3`
+
+
 async function getWeatherData() {
   try {
     const response = await fetch(weatherURL);
@@ -54,6 +58,11 @@ function displayCurrentWeather(data) {
   }
 }
 
+function displayCurrentNews(newsData){
+  if(!newsData.articles || newsData.articles.length === 0) return;
+  
+}
+
 
 function updateCurrentDate() {
   const dateElement = document.getElementById("current-date");
@@ -63,3 +72,7 @@ function updateCurrentDate() {
   const options = { weekday: "long", day: "numeric", year: "numeric" };
   dateElement.textContent = `Date: ${now.toLocaleDateString("en-US", options)}`;
 }
+
+
+const URL = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=18abc84001204202af32ebe2354a09a3`
+
