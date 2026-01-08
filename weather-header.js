@@ -2,12 +2,17 @@ const city = "Tooele";
 const apiKey = "889f86ea113204ba293d53abe0617a4b";
 const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=tooele&units=imperial&appid=${apiKey}`;
 
-const newsURL = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=18abc84001204202af32ebe2354a09a3`;
+const newsURL = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=18abc84001204202af32ebe2354a09a3`;
 
 async function getWeatherData() {
   try {
     const response = await fetch(weatherURL);
     const data = await response.json();
+
+    const newsResponse = await fetch(newsURL);
+    const newsData = await newsResponse.json();
+
+    displayCurrentNews(newsData)
 
     displayCurrentWeather(data);
 
@@ -24,6 +29,8 @@ function displayCurrentWeather(data) {
   const temp = data.main.temp;
   const humidity = data.main.humidity;
   const windSpeed = data.wind.speed;
+
+
 
   let windChill = "N/A";
   if (temp <= 50 && windSpeed > 3) {
@@ -65,7 +72,7 @@ function displayCurrentNews(newsData) {
   const newsImg = document.getElementById("article-image-0");
 
   if (newsHeader) {
-    newsHeader.textContent = mainArticle.tittle;
+    newsHeader.textContent = mainArticle.title;
     newsHeader.href = mainArticle.url;
     newsHeader.target = "_blank";
   }
@@ -74,7 +81,7 @@ function displayCurrentNews(newsData) {
     headerDesc.textContent = mainArticle.description || "";
   }
 
-  if (headerImg && mainArticle.urlToImage) {
+  if (newsImg && mainArticle.urlToImage) {
     newsImg.src = mainArticle.urlToImage;
   }
 
@@ -99,8 +106,8 @@ function displayCurrentNews(newsData) {
     }
 
 
-    if (newsImg && article.urlToImage) {
-      newsImg.src = article.urlToImage;
+    if (imgEl && article.urlToImage) {
+      imgEl.src = article.urlToImage;
     }
   }
 }
