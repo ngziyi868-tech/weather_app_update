@@ -65,7 +65,7 @@ function displayCurrentNews(newsData) {
   const newsImg = document.getElementById("article-image-0");
 
   if (newsHeader) {
-    newsHeader.textContent = mainArticle.url;
+    newsHeader.textContent = mainArticle.tittle;
     newsHeader.href = mainArticle.url;
     newsHeader.target = "_blank";
   }
@@ -82,10 +82,16 @@ function displayCurrentNews(newsData) {
     const article = articles[i];
     if (!article) continue;
 
-    const linkEl = document.getElementById("article-link-${i}");
-    const descEl = document.getElementById("article-desc-${i}");
-    const imgEl = document.getElementById("article-img-${i}");
+    const linkEl = document.getElementById(`article-link-${i}`);
+    const descEl = document.getElementById(`article-desc-${i}`);
+    const imgEl = document.getElementById(`article-img-${i}`);
 
+    if(linkEl){
+      linkEl.textContent = article.link;
+      linkEl.href = article.url;
+      linkEl.target = "_blank"
+
+    }
   
 
     if (descEl) {
@@ -93,8 +99,8 @@ function displayCurrentNews(newsData) {
     }
 
 
-    if (imgEl && article.urlToImage) {
-      imgEl.src = article.urlToImage;
+    if (newsImg && article.urlToImage) {
+      newsImg.src = article.urlToImage;
     }
   }
 }
